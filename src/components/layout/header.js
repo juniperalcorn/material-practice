@@ -13,40 +13,43 @@ import MenuIcon from '@material-ui/icons/Menu';
 // import Typography from '@material-ui/core/Typography';
 // import withWidth from '@material-ui/core/withWidth';
 
+//assets
+import img from '../../assets/kitten-2-edited.png'
+
 class Header extends Component {
     constructor (props) {
         super(props)
 
         this.state = {
-            anchorEl: null,
-            isNavOpen: false,
+            // anchorEl: null,
+            // isNavOpen: false,
         }
-        this.toggleNav = this.toggleNav.bind(this)
-        this.handleMenuClose=this.handleMenuClose.bind(this)
+        // this.toggleNav = this.toggleNav.bind(this)
+        // this.handleMenuClose=this.handleMenuClose.bind(this)
     }
 
-    toggleNav = () => {
-        this.setState({ isNavOpen: !this.state.isNavOpen })
-    }
+    // toggleNav = () => {
+    //     this.setState({ isNavOpen: !this.state.isNavOpen })
+    // }
 
-    handleMenuClose = () => {
-        this.setState({anchorEl: null})
-    }
+    // handleMenuClose = () => {
+    //     this.setState({anchorEl: null})
+    // }
 
     render(){
         const { classes } = this.props;
-        const isMenuOpen = Boolean(this.state.anchorEl)
+        // const isMenuOpen = Boolean(this.state.anchorEl)
 
-        const renderMenu = (
-            <Menu
-                anchorEl={this.state.anchorEl}
-                open={isMenuOpen}
-                onClose={this.handleMenuClose}
-            >
-                <MenuItem>Hello</MenuItem>
-                <MenuItem>World</MenuItem>
-            </Menu>
-        )
+        // const renderMenu = (
+        //     <Menu
+        //         anchorEl={this.state.anchorEl}
+        //         open={isMenuOpen}
+        //         onClose={this.handleMenuClose}
+        //     >
+        //         <MenuItem>Hello</MenuItem>
+        //         <MenuItem>World</MenuItem>
+        //     </Menu>
+        // )
 
 
         return(
@@ -55,11 +58,12 @@ class Header extends Component {
                     <Toolbar>
                         <IconButton onClick={this.toggleNav}>
                             <MenuIcon/>
+                            <img src={img} alt='kitten photo'></img>
+                            <span>Material UI Practice Page</span>
                         </IconButton>
                     </Toolbar>
                     
                 </AppBar>
-             {renderMenu}
             </div>
         )
     }

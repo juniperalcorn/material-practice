@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles'
 
 import AppBar from '@material-ui/core/AppBar'
-import BottomNavigation from '@material-ui/core/BottomNavigation'
-
-import { Icon } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 
 
 class Footer extends Component{
@@ -16,8 +12,6 @@ class Footer extends Component{
 
         }
     }
-
-
 
     render(){
         const { classes } = this.props
