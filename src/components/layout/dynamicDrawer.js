@@ -1,4 +1,5 @@
 import React, { Component, Fragment, useState } from 'react';
+import classnames from 'classnames'
 
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
@@ -34,41 +35,54 @@ const styles = theme => ({
 
 const newToolbar = withStyles(styles)(
   ({ classes, title, onMenuClick }) => (
-      <Fragment>
-          <AppBar className={classes.aboveDrawer}>
+      // <Fragment>
+          <AppBar>
               <Toolbar>
                   <IconButton
-                    className={classes.menuButton}
-                    color='inherit'
-                    aria-label='Menu'
-                    onClick={onMenuClick}
+                    // className={classes.menuButton}
+                    // aria-label='Menu'
+                    // onClick={onMenuClick}
                   >
                       <MenuIcon />
                   </IconButton>
                   <Typography
-                    className={classes.flex}
+                    // className={classes.flex}
                   >
                       {title}
                   </Typography>
               </Toolbar>
           </AppBar>
-          <div className={classes.toolbarMargin} />
-      </Fragment>
+      //     <div className={classes.toolbarMargin} />
+      // </Fragment>
   )
 )
 
-const newDrawer = withStyles(styles) (
-  ({ classes, variant, open, onClose, onItemClick }) => (
+const newDrawer = withStyles(styles)(
+  ({ classes, variant, open, onClose, setTitle }) => (
       <Drawer variant={variant} open={open} onClose={onClose}>
           <div 
-          //includes classnames??
+          className={classnames({
+            [classes.toolbarMargin]: variant === 'persistent'
+            })}
           />
           <List>
-              <ListItem button onClick={onItemClick('Home')}>
+              <ListItem 
+                button 
+                onClick={()=>{
+                  setTitle('Home')
+                  onClose()
+                }}
+              >
                   <ListItemText>Home</ListItemText>
               </ListItem>
 
-              <ListItem button onClick={onItemClick('Elsewhere')}>
+              <ListItem 
+                button 
+                onClick={()=>{
+                  setTitle('Elsewhere')
+                  onClose()
+                }}
+              >
                   <ListItemText>Elsewhere</ListItemText>
               </ListItem>
           </List>
@@ -92,12 +106,12 @@ function DynamicDrawer({ classes, variant }) {
   return(
       <div>
           <newToolbar title={title} onMenuClick={toggleDrawer}/>
-          <newDrawer 
+          {/* <newDrawer 
               open={drawer}
               onClose={toggleDrawer}
               onItemClick={onItemClick}
               variant={variant}
-          />
+          /> */}
       </div>
   )
 }

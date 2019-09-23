@@ -13,7 +13,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 //assets
 import img from '../../assets/kitten-2-edited.png'
-
+//components
+import SideMenu from './sideMenu'
 
 class Header extends Component {
     constructor (props) {
@@ -57,9 +58,9 @@ class Header extends Component {
                     <Toolbar>
                         <IconButton onClick={this.toggleNav}>
                             <MenuIcon/>
-                            <img src={img} alt='kitten photo'></img>
-                            <span>Material UI Practice Page</span>
                         </IconButton>
+                        <img src={img} alt='kitten photo'></img>
+                        <span>Material UI Practice Page</span>
                     </Toolbar>
                     
                 </AppBar>
