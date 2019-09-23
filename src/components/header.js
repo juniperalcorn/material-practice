@@ -29,7 +29,7 @@ class Header extends Component {
                 <AppBar>
                     <Toolbar>
                         <IconButton>
-                            Menu
+                            <MenuIcon/>
                         </IconButton>
                     </Toolbar>
                     
