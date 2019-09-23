@@ -4,7 +4,7 @@ import { Route, Link } from 'react-router-dom'
 import './App.css';
 
 //components
-import Header from './components/header'
+import Header from './components/layout/header'
 
 function App() {
   return (

@@ -6,8 +6,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { Icon } from '@material-ui/core';
 
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 // import AccountCircle from '@material-ui/icons/AccountCircle';
 // import Typography from '@material-ui/core/Typography';
@@ -18,22 +18,31 @@ class Header extends Component {
         super(props)
 
         this.state = {
-
+            anchorEl: null,
         }
     }
 
     render(){
         const { classes } = this.props;
+        const renderMenu = (
+            <Menu>
+                <MenuItem>Hello</MenuItem>
+                <MenuItem>World</MenuItem>
+            </Menu>
+        )
+
+
         return(
             <div>
                 <AppBar>
                     <Toolbar>
-                        <IconButton>
+                        <IconButton onClick={renderMenu}>
                             <MenuIcon/>
                         </IconButton>
                     </Toolbar>
                     
                 </AppBar>
+                {/* {renderMenu} */}
             </div>
         )
     }
