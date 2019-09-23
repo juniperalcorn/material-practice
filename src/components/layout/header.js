@@ -22,10 +22,15 @@ class Header extends Component {
             isNavOpen: false,
         }
         this.toggleNav = this.toggleNav.bind(this)
+        this.handleMenuClose=this.handleMenuClose.bind(this)
     }
 
     toggleNav = () => {
         this.setState({ isNavOpen: !this.state.isNavOpen })
+    }
+
+    handleMenuClose = () => {
+        this.setState({anchorEl: null})
     }
 
     render(){
@@ -34,7 +39,9 @@ class Header extends Component {
 
         const renderMenu = (
             <Menu
+                anchorEl={this.state.anchorEl}
                 open={isMenuOpen}
+                onClose={this.handleMenuClose}
             >
                 <MenuItem>Hello</MenuItem>
                 <MenuItem>World</MenuItem>
@@ -52,7 +59,7 @@ class Header extends Component {
                     </Toolbar>
                     
                 </AppBar>
-                {/* {renderMenu} */}
+             {renderMenu}
             </div>
         )
     }
