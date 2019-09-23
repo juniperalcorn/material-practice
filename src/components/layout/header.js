@@ -19,13 +19,23 @@ class Header extends Component {
 
         this.state = {
             anchorEl: null,
+            isNavOpen: false,
         }
+        this.toggleNav = this.toggleNav.bind(this)
+    }
+
+    toggleNav = () => {
+        this.setState({ isNavOpen: !this.state.isNavOpen })
     }
 
     render(){
         const { classes } = this.props;
+        const isMenuOpen = Boolean(this.state.anchorEl)
+
         const renderMenu = (
-            <Menu>
+            <Menu
+                open={isMenuOpen}
+            >
                 <MenuItem>Hello</MenuItem>
                 <MenuItem>World</MenuItem>
             </Menu>
@@ -36,7 +46,7 @@ class Header extends Component {
             <div>
                 <AppBar>
                     <Toolbar>
-                        <IconButton onClick={renderMenu}>
+                        <IconButton onClick={this.toggleNav}>
                             <MenuIcon/>
                         </IconButton>
                     </Toolbar>
