@@ -28,7 +28,7 @@ class Header extends Component {
 
         return(
             <div>
-                <AppBar position='fixed'>
+                <AppBar position='sticky'>
                     <Toolbar >
                         <IconButton 
                             aria-label='Open drawer'
