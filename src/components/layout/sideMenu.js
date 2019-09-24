@@ -9,18 +9,34 @@ import ListItemText from '@material-ui/core/listItemText'
 class SideMenu extends Component{
   constructor(props){
     super(props)
-    this.state={}
+    this.state={
+      // isOpen: true,
+
+    }
   }
 
   render(){
+    // const [open, setOpen] = useState(false)
+    const { classes, variant, toggleNav, isNavOpen } = this.props
+
     return(
-      <Drawer>
+      <Drawer
+        variant={variant}
+        open={isNavOpen}
+        onClose={toggleNav}
+      >
         <div></div>
         <List>
-          <ListItem>
+          <ListItem
+            button
+            // onClick={()=>setOpen(false)}
+          >
             <ListItemText>Place 1</ListItemText>
           </ListItem>
-          <ListItem>
+          <ListItem
+            button
+            // onClick={()=>setOpen(false)}
+          >
             <ListItemText>Place 2</ListItemText>
           </ListItem>
         </List>

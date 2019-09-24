@@ -24,13 +24,8 @@ class Header extends Component {
             // anchorEl: null,
             // isNavOpen: false,
         }
-        // this.toggleNav = this.toggleNav.bind(this)
         // this.handleMenuClose=this.handleMenuClose.bind(this)
     }
-
-    // toggleNav = () => {
-    //     this.setState({ isNavOpen: !this.state.isNavOpen })
-    // }
 
     // handleMenuClose = () => {
     //     this.setState({anchorEl: null})
@@ -56,7 +51,13 @@ class Header extends Component {
             <div>
                 <AppBar>
                     <Toolbar>
-                        <IconButton onClick={this.toggleNav}>
+                        <IconButton 
+                            aria-label='Open drawer'
+                            onClick={()=>{
+                                console.log('header open')
+                                this.props.toggleNav()
+                            }}
+                        >
                             <MenuIcon/>
                         </IconButton>
                         <img src={img} alt='kitten photo'></img>
