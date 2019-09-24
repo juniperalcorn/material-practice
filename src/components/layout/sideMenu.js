@@ -10,13 +10,10 @@ class SideMenu extends Component{
   constructor(props){
     super(props)
     this.state={
-      // isOpen: true,
-
     }
   }
 
   render(){
-    // const [open, setOpen] = useState(false)
     const { classes, variant, toggleNav, isNavOpen } = this.props
 
     return(
@@ -25,19 +22,18 @@ class SideMenu extends Component{
         open={isNavOpen}
         onClose={toggleNav}
       >
-        <div></div>
         <List>
           <ListItem
             button
-            // onClick={()=>setOpen(false)}
+            onClick={toggleNav}
           >
-            <ListItemText>Place 1</ListItemText>
+            <ListItemText>There</ListItemText>
           </ListItem>
           <ListItem
             button
-            // onClick={()=>setOpen(false)}
+            onClick={toggleNav}
           >
-            <ListItemText>Place 2</ListItemText>
+            <ListItemText>Elsewhere</ListItemText>
           </ListItem>
         </List>
       </Drawer>

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
+import classNames from 'classnames'
+
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { Icon, SwipeableDrawer } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography'
-
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 
 //assets
@@ -21,47 +20,24 @@ class Header extends Component {
         super(props)
 
         this.state = {
-            // anchorEl: null,
-            // isNavOpen: false,
         }
-        // this.handleMenuClose=this.handleMenuClose.bind(this)
     }
-
-    // handleMenuClose = () => {
-    //     this.setState({anchorEl: null})
-    // }
 
     render(){
         const { classes } = this.props;
-        // const isMenuOpen = Boolean(this.state.anchorEl)
-
-        // const renderMenu = (
-        //     <Menu
-        //         anchorEl={this.state.anchorEl}
-        //         open={isMenuOpen}
-        //         onClose={this.handleMenuClose}
-        //     >
-        //         <MenuItem>Hello</MenuItem>
-        //         <MenuItem>World</MenuItem>
-        //     </Menu>
-        // )
-
 
         return(
             <div>
-                <AppBar>
-                    <Toolbar>
+                <AppBar position='fixed'>
+                    <Toolbar >
                         <IconButton 
                             aria-label='Open drawer'
-                            onClick={()=>{
-                                console.log('header open')
-                                this.props.toggleNav()
-                            }}
+                            onClick={this.props.toggleNav}
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <img src={img} alt='kitten photo'></img>
-                        <span>Material UI Practice Page</span>
+                        <img src={img} alt='kitten photo' ></img>
+                        <Typography>Material UI Practice Page</Typography>
                     </Toolbar>
                     
                 </AppBar>
@@ -70,4 +46,8 @@ class Header extends Component {
     }
 }
 
-export default withStyles()(Header)
+const styles = theme => ({
+    toolbarMargin: theme.mixins.toolbar
+})
+
+export default withStyles(styles)(Header)

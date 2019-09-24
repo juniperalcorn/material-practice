@@ -6,6 +6,7 @@ import {withStyles} from '@material-ui/core/styles'
 //components
 import SideMenu from './sideMenu'
 import Header from './header'
+import Footer from './footer'
 
 class Layout extends Component{
   constructor(props){
@@ -16,10 +17,7 @@ class Layout extends Component{
   }
 
   _toggleIsNavOpen = () => {
-    // const status = this.state.isNavOpen
     this.setState({ isNavOpen: !this.state.isNavOpen })
-
-    console.log(this.state.isNavOpen)
   }
 
   render(){
@@ -40,6 +38,8 @@ class Layout extends Component{
             // path={location.pathname}
           />
         </div>
+
+        <Footer />
       </div>
     )
   }
