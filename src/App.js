@@ -9,7 +9,8 @@ import './App.css';
 //components
 import Layout from './components/layout/layout'
 import Lorem from './components/content/lorem'
-
+import There from './components/content/there'
+import Elsewhere from './components/content/elsewhere'
 
 const styles = theme => ({
   toolbarMargin: theme.mixins.toolbar
@@ -22,10 +23,8 @@ const App = withStyles(styles)(({classes}) =>(
 
     <Switch>
       <Route exact path='/' component={Lorem} />
-      <Route path='/there' />
-      <Route path='/elsewhere' />
-      {/* <Lorem /> */}
-
+      <Route path='/there' component={There}/>
+      <Route path='/elsewhere' component={Elsewhere}/>
     </Switch>
     
 
