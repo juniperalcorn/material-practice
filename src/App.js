@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 
 //material ui
 import {withStyles} from '@material-ui/core/styles'
@@ -19,7 +19,15 @@ const App = withStyles(styles)(({classes}) =>(
 
   <div className="App">
     <Layout />
-    <Lorem />
+
+    <Switch>
+      <Route exact path='/' component={Lorem} />
+      <Route path='/there' />
+      <Route path='/elsewhere' />
+      {/* <Lorem /> */}
+
+    </Switch>
+    
 
   </div>
 

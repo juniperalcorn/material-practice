@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import classNames from 'classnames'
 
@@ -36,7 +37,9 @@ class Header extends Component {
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <img src={img} alt='kitten photo' ></img>
+                        <Link to='/'>
+                            <img src={img} alt='kitten photo' ></img>
+                        </Link>
                         <Typography>Material UI Practice Page</Typography>
                     </Toolbar>
                     
