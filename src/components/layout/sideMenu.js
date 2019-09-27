@@ -1,4 +1,5 @@
 import React, { Component, useState, Fragment } from 'react';
+import { Link, NavLink } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/drawer'
@@ -27,13 +28,13 @@ class SideMenu extends Component{
             button
             onClick={toggleNav}
           >
-            <ListItemText>There</ListItemText>
+            <ListItemText><NavLink to='/there'>There</NavLink></ListItemText>
           </ListItem>
           <ListItem
             button
             onClick={toggleNav}
           >
-            <ListItemText>Elsewhere</ListItemText>
+            <ListItemText><Link to='/elsewhere'>Elsewhere</Link></ListItemText>
           </ListItem>
         </List>
       </Drawer>
