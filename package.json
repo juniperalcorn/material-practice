@@ -7,6 +7,8 @@
     "@material-ui/icons": "^4.4.3",
     "classnames": "^2.2.6",
     "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",

@@ -9,6 +9,11 @@ import Typography from '@material-ui/core/Typography'
 
 import AppBar from '@material-ui/core/AppBar'
 
+import moment from 'moment'
+import timezone from 'moment-timezone'
+
+
+
 function TabPanel(props){
   const { children, value, index, ...other } = props;
 
@@ -34,6 +39,23 @@ function a11yProps(index) {
   };
 }
 
+function checkTime() {
+  // moment().format('MMM, DD, YYYY h:mm:ss a')
+  moment().format('lll')
+  const givenDate='2019-04-29T20:15:35.890361Z'
+  let showDate = moment(givenDate).format('lll')
+
+  
+  let zone = moment(givenDate).tz('UTC').format('z')
+
+  let stackOverflow = moment(givenDate).toString()
+  console.log('stack', stackOverflow)
+
+  let current = moment().tz('')
+  console.log('given date timezone', zone)
+  console.log('given date formatted', showDate)
+}
+
 
 class There extends Component {
   constructor(props){
@@ -46,6 +68,7 @@ class There extends Component {
   render(){
     const {classes} = this.props
     const {value} = this.state
+    checkTime()
 
     const handleChange = (event, newValue) => {
       this.setState({value: newValue})
@@ -67,7 +90,6 @@ class There extends Component {
         <TabPanel value={value} index={1}>
           Then check over there
         </TabPanel>
-
         
       </div>
     )
