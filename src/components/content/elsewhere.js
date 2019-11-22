@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import { withStyles } from '@material-ui/core/styles'
 
 import Shortcut from '../shortcut'
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 // const shortcuts = {
@@ -81,6 +83,14 @@ class Elsewhere extends Component {
     return(
       <div>
         <h1>Elsewhere</h1>
+        <Autocomplete
+          id="free-solo-demo"
+          freeSolo
+          options={list.map(el => `${el} Option`)}
+          renderInput={params => (
+            <TextField {...params} label="autocomplete test" margin="normal" variant="outlined" fullWidth />
+          )}
+        />
         {list.map(el=>(
             <div
             // onClick={this.useTool(select)}
