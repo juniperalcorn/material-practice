@@ -6,6 +6,8 @@ import Shortcut from '../shortcut'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
+import * as tableau from 'tableau-api';  
+
 const list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 // const shortcuts = {
 //   selectInList(event){
@@ -51,6 +53,19 @@ class Elsewhere extends Component {
 
   }
 
+  componentDidMount(){
+    this.initViz()
+  }
+
+  initViz(){
+    let viz 
+    const vizUrl = "https://prod-useast-a.online.tableau.com/t/orbitalrxsingularity/views/Utilizationtest/Dashboard1"
+    // const vizUrl = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms"
+    const containerDiv = document.getElementById("vizContainer")
+    const options = { hideTabs: false }
+    viz = new window.tableau.Viz(containerDiv, vizUrl, options)
+  }
+
   handleKeyDown = (e) => {
     console.log(e)
     if (e.keyCode === 40) {
@@ -83,6 +98,8 @@ class Elsewhere extends Component {
     return(
       <div>
         <h1>Elsewhere</h1>
+
+        <div id='vizContainer'>  </div>  
         <Autocomplete
           id="free-solo-demo"
           freeSolo
